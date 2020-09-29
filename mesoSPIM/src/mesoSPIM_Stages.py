@@ -2355,7 +2355,8 @@ class mesoSPIM_ASI_Tango_Stage(mesoSPIM_Stage):
             if self.pos_timer.isActive():
                 self.pos_timer.stop()
             if self.counter % self.num_images_between_position_polls == 0:
-                self.report_position()
+                pass # hack to allow 1st panda stack
+                # self.report_position() 
             if self.running_acquisition_flag == False:
                 self.running_acquisition_flag = True 
                 self.sig_status_message.emit('Running Acquisition - Attention: Stage positions only updated every ' + str(self.num_images_between_position_polls) +' z-steps!', 0)
